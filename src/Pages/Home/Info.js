@@ -4,7 +4,7 @@ import InfoCard from './InfoCard'
 
 const info = () => {
     return (
-        <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-5 px-5 py-10'>
+        <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-5 px-10 my-10'>
             <InfoCard title='a'colorClass='bg-gradient-to-r from-primary to-secondary' img='/clock.svg'></InfoCard>
             <InfoCard title='c'colorClass='bg-gradient-to-r from-primary to-secondary' img='/marker.svg' ></InfoCard>
             <InfoCard title='v'colorClass='bg-gradient-to-r from-primary to-secondary' img='/phone.svg' ></InfoCard>

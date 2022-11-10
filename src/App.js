@@ -3,9 +3,10 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './Pages/Shared/Navbar/Navbar';
-import About from './Pages/About/About';
-import Home from './Pages/Home/Home';
 import Footer from './Pages/Footer/Footer';
+import publicRoutes from './Routes/publicRoutes';
+import privateRoutes from './Routes/privateRoutes';
+import PrivateRoute from './Authentication/PrivateRoute';
 
 
 
@@ -15,9 +16,17 @@ function App() {
     <div>
       <Navbar></Navbar>
       <Routes>
-        <Route path="/"element={<Home></Home>} />
-        <Route path="/"element={<About></About>} />
-      </Routes>;
+        {publicRoutes.map(({ path, Component }, index) => (
+          <Route key={index} path={path} element={<Component />} />
+        ))}
+        {/* privateRoute */}
+        <Route element={<PrivateRoute></PrivateRoute>}>
+          {privateRoutes.map(({ path, Component }, index) => (
+            <Route key={index} path={path} element={<Component />} />
+          ))}
+        </Route>
+      </Routes>
+
       <Footer></Footer>
     </div>
   );

@@ -1,15 +1,32 @@
+
 import React from 'react';
-import {Link } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import { Link } from 'react-router-dom';
+import auth from '../../../firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
+
+
 
 
 const Navbar = () => {
+
+    const [user, loading, error] = useAuthState(auth);
+    // const [signOut, SignOutloading, SignOuterror] = useSignOut(auth);
+    // const logout = () => {
+    //     signOut(auth);
+    // };
     const menueItems = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/appoinment'>Appoinment</Link></li>
-        <li><Link to='/contact'>Contact us</Link></li>
-        <li><Link to='/about'>About</Link></li>
-        <li><Link to='/login'>Log in</Link></li>
+        <>
+            <li><Link to='/'>Home</Link></li>
+            <li><Link to='/appoinment'>Appoinment</Link></li>
+            <li><Link to='/contact'>Contact us</Link></li>
+            <li><Link to='/about'>About</Link></li>
+            <li>{user ? <Link type='button' className="" onClick={() => signOut(auth)}>Logout</Link> : <Link to="/login">Log in</Link>}</li>
+        </>
     </>
+
+
+
     return (
         <div className="navbar bg-base-100 px-10">
             <div className="navbar-start">
@@ -26,6 +43,7 @@ const Navbar = () => {
             <div className=" navbar-end navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
                     {menueItems}
+
                 </ul>
             </div>
 
