@@ -82,11 +82,12 @@ const Login = () => {
                         {/* <button class="btn btn-primary w-full" >Registration</button> */}
                     </div>
 
-                    <div class="divider">OR</div>
-                    <div class="grid  rounded-box place-items-center">
-                        <GoogleLogIn></GoogleLogIn>
-                    </div>
                 </form>
+
+                <div class="divider">OR</div>
+                <div class="grid  rounded-box place-items-center">
+                    <GoogleLogIn></GoogleLogIn>
+                </div>
             </div>
         </div>
     );

@@ -4,11 +4,16 @@ import { signOut } from 'firebase/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useLocation } from 'react-router-dom';
 
 
 
 
 const Navbar = () => {
+
+    let location = useLocation();
+    let from = "/dashboard";
+
 
     const [user, loading, error] = useAuthState(auth);
     // const [signOut, SignOutloading, SignOuterror] = useSignOut(auth);
@@ -21,6 +26,9 @@ const Navbar = () => {
             <li><Link to='/appoinment'>Appoinment</Link></li>
             <li><Link to='/contact'>Contact us</Link></li>
             <li><Link to='/about'>About</Link></li>
+            {
+                user && <li><Link to='/dashboard'>Dashboard</Link></li>
+            }
             <li>{user ? <Link type='button' className="" onClick={() => signOut(auth)}>Logout</Link> : <Link to="/login">Log in</Link>}</li>
         </>
     </>
@@ -45,6 +53,17 @@ const Navbar = () => {
                     {menueItems}
 
                 </ul>
+            </div>
+            <div className="navbar-end md:hidden lg:hidden">
+
+
+
+                {
+                    location.pathname == from && <label for="my-drawer-2" className="btn btn-primary drawer-button md:hidden lg:hidden">Dashboard</label>
+                }
+
+                {/* // from &&  <label for="my-drawer-2" className="btn btn-primary drawer-button md:hidden lg:hidden">Dashboard</label> */}
+
             </div>
 
         </div>

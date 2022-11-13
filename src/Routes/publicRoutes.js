@@ -1,6 +1,5 @@
 import Home from '../Pages/Home/Home';
 import About from '../Pages/About/About';
-import Appointment from '../Pages/Appointment/Appointment';
 import Login from '../Pages/Login/Login'
 import Registration from '../Pages/Shared/GoogleLogIn/Registration';
 // import Home from '../Pages'

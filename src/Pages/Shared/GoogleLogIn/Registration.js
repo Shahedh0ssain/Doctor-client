@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import GoogleLogIn from './GoogleLogIn';
 import { Navigate } from "react-router-dom";
+import useToken from '../../../Hooks/useToken';
 
 
 const Registration = () => {
@@ -15,7 +16,8 @@ const Registration = () => {
         loading,
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
-
+    // token hook use for users validation:
+    const [token]=useToken();
 
     const { register, formState: { errors }, handleSubmit } = useForm();
 
@@ -27,7 +29,7 @@ const Registration = () => {
     if (error) {
         return (
             <div>
-                <p>Error</p>
+                <p>Error {error.message}</p>
             </div>
         );
     }
@@ -35,21 +37,19 @@ const Registration = () => {
         return <p>Loading...</p>;
     }
     if (user) {
+
         <Navigate to="/" replace={true} />
 
     }
 
     return (
-        <div className='md:h-screen text-center w-full max-w-xs mx-auto mt-8'>
+        <div className=' md:h-screen text-center w-full max-w-xs mx-auto '>
 
-
-
-            <div className="flex flex-col w-full border-opacity-50 rounded-md bg-base-100 shadow-xl py-10">
+        <div className="flex flex-col w-full border-opacity-50 rounded-md bg-base-100 shadow-xl py-10">
                 {/* hook from */}
                 <form className='' onSubmit={handleSubmit(onSubmit)}>
                     <h1 className='text-center text-xl'>Registration</h1>
-
-                    <div className='card-body'>
+                   
                         <div className='form-control w-full max-w-xs'>
                             <label class="label">
                                 <span class="label-text">Name</span>
@@ -97,12 +97,12 @@ const Registration = () => {
                             <input className="btn btn-primary w-full" type="submit" value="Registration" />
                             {/* <button class="btn btn-primary w-full" >Registration</button> */}
                         </div>
-                    </div>
-                    <div class="divider">OR</div>
-                    <div class="grid  rounded-box place-items-center">
-                        <GoogleLogIn></GoogleLogIn>
-                    </div>
+
                 </form>
+                <div class="divider">OR</div>
+                <div class="w-full">
+                    <GoogleLogIn></GoogleLogIn>
+                </div>
             </div>
         </div>
     );

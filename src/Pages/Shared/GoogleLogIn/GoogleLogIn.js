@@ -1,5 +1,6 @@
 import React from 'react';
-import {  useSignInWithGoogle } from 'react-firebase-hooks/auth';import { useLocation, useNavigate } from 'react-router-dom';
+import {  useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 
 
@@ -18,7 +19,7 @@ const GoogleLogIn = () => {
         <div>
             <button
             onClick={()=>signInWithGoogle()}
-                className="btn btn-outline"
+                className="btn btn-outline w-full"
             >Continue with Google</button>
         </div>
     );
