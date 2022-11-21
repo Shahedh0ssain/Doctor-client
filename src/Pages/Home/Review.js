@@ -9,7 +9,7 @@ const Review = ({ review }) => {
 
                     <div className="avatar pr-5">
                         <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                            <img className='' src={review.img} alt="" srcset="" />
+                            <img className='' src={review.img} alt="" srcSet="" />
                         </div>
                     </div>
                     <div>

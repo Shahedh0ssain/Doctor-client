@@ -1,7 +1,7 @@
 import React from 'react';
 
 const infoCard = ({ img ,colorClass}) => {
-    console.log(img)
+    // console.log(img)
     return (
         <div className={`card lg:card-side bg-base-100 shadow-xl ${colorClass}`}>
             <figure className='p-5'><img src={img} alt="Album" /></figure>

@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import auth from '../../firebase.init';
 import GoogleLogIn from '../Shared/GoogleLogIn/GoogleLogIn';
 import Loading from '../Shared/Loading';
+import useToken from '../../Hooks/useToken';
 
 
 const Login = () => {
@@ -24,6 +25,7 @@ const Login = () => {
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
     let errorMessage;
+    const [token] = useToken(user);
 
 
     // return
@@ -34,7 +36,8 @@ const Login = () => {
         return <Loading></Loading>
     }
 
-    if (user) {
+    if (token) {
+        console.log(token);
         navigate(from, { replace: true });
     }
 
@@ -46,8 +49,8 @@ const Login = () => {
 
                     <h1 className='text-center text-xl'>LogIn</h1>
                     <div className='form-control w-full max-w-xs'>
-                        <label class="label">
-                            <span class="label-text">Email</span>
+                        <label className="label">
+                            <span className="label-text">Email</span>
                         </label>
 
                         <input
@@ -60,8 +63,8 @@ const Login = () => {
                     </div>
 
                     <div className='form-control w-full max-w-xs'>
-                        <label class="label">
-                            <span class="label-text">Password</span>
+                        <label className="label">
+                            <span className="label-text">Password</span>
                         </label>
 
                         <input
@@ -75,17 +78,17 @@ const Login = () => {
                         {errorMessage}
                     </p>
                     {/* logIn and regi toggle */}
-                    <span class="">Please Login <Link to='/registration'>now</Link></span>
+                    <span className="">Please Login <Link to='/registration'>now</Link></span>
                     {/* <input type="submit" /> */}
-                    <div class="card-actions justify-center ">
+                    <div className="card-actions justify-center ">
                         <input className="btn btn-primary w-full" type="submit" value="Login" />
-                        {/* <button class="btn btn-primary w-full" >Registration</button> */}
+                        {/* <button className="btn btn-primary w-full" >Registration</button> */}
                     </div>
 
                 </form>
 
-                <div class="divider">OR</div>
-                <div class="grid  rounded-box place-items-center">
+                <div className="divider">OR</div>
+                <div className="grid  rounded-box place-items-center">
                     <GoogleLogIn></GoogleLogIn>
                 </div>
             </div>

@@ -17,9 +17,10 @@ const Navbar = () => {
 
     const [user, loading, error] = useAuthState(auth);
     // const [signOut, SignOutloading, SignOuterror] = useSignOut(auth);
-    // const logout = () => {
-    //     signOut(auth);
-    // };
+    const logout = () => {
+        signOut(auth);
+        localStorage.removeItem('accessToken');
+    };
     const menueItems = <>
         <>
             <li><Link to='/'>Home</Link></li>
@@ -29,7 +30,7 @@ const Navbar = () => {
             {
                 user && <li><Link to='/dashboard'>Dashboard</Link></li>
             }
-            <li>{user ? <Link type='button' className="" onClick={() => signOut(auth)}>Logout</Link> : <Link to="/login">Log in</Link>}</li>
+            <li>{user ? <Link type='button' className="" onClick={logout}>Logout</Link> : <Link to="/login">Log in</Link>}</li>
         </>
     </>
 
