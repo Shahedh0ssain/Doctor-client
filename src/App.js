@@ -40,7 +40,7 @@ function App() {
           </Route>
 
         </Route>
-{/* 
+      {/* 
         <Route path='/dashboard' element={
           <PrivateRoute>
             <Dashboard />
