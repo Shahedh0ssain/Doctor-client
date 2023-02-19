@@ -97,7 +97,7 @@ const Registration = () => {
                     </div>
                     {Rerror}
                     {/* logIn and regi toggle */}
-                    <span className="">Please Login <Link to='/login'>now</Link></span>
+                    <span className="">Please registration <Link to='/login'>now</Link></span>
                     {/* <input type="submit" /> */}
                     <div className="card-actions justify-center ">
                         <input className="btn btn-primary w-full" type="submit" value="Registration" />

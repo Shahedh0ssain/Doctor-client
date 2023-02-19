@@ -31,6 +31,7 @@ function App() {
             <Route key={index} path={path} element={<Component />} />
           ))}
         </Route>
+        {/* //end */}
         <Route element={<PrivateRoute></PrivateRoute>}>
           <Route
             path="dashboard"
@@ -40,7 +41,7 @@ function App() {
           </Route>
 
         </Route>
-      {/* 
+        {/* 
         <Route path='/dashboard' element={
           <PrivateRoute>
             <Dashboard />

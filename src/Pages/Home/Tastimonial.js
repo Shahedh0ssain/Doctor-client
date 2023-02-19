@@ -26,7 +26,7 @@ const Tastimonial = () => {
         }
     ]
     return (
-        <section className='px-10 my-32'>
+        <section className='px-5 md:px-10 my-32'>
             <div className='flex justify-between items-center'>
                 <div>
                     <h5 className=' text-xl'>Testimonial</h5>
